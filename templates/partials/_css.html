@@ -1,0 +1,27 @@
+{% load static %}
+<meta name="title" content="{{mysite.title}} - {% block title2 %}{% endblock %}" />
+<meta name="author" content="{{mysite.ceo}}" />
+<meta name="description" content="{{mysite.about}}" />
+<meta name="keywords" content="{{mysite.keywords}}" />
+<link href="{% static 'riganhub/css/custom.css' %}" rel="stylesheet">
+<link href="{% static 'riganhub/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'riganhub/css/color.css' %}" rel="stylesheet">
+<link href="{% static 'riganhub/css/responsive.css' %}" rel="stylesheet">
+<link href="{% static 'riganhub/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'riganhub/css/prettyPhoto.css' %}" rel="stylesheet">
+<link href="{% static 'riganhub/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'riganhub/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<link rel="icon" type="image/png" href="{{mysite.icon.url}}" />
+<link rel="apple-touch-icon" type="image/png" href="{{mysite.icon.url}}" />
+<style>
+    .site-header .navbar-default .navbar-nav>li>a:hover,
+.site-header .navbar-default .navbar-nav>li.active>a,
+.site-header .navbar-default .navbar-nav>li.active>a:focus,
+.site-header .navbar-default .navbar-nav>li.active>a:hover,
+.site-header .navbar-default .navbar-nav>.open>a,
+.site-header .navbar-default .navbar-nav>.open>a:focus,
+.site-header .navbar-default .navbar-nav>.open>a:hover {
+	background: #bf0311;
+	color: #fff;
+}
+</style>

@@ -1,0 +1,308 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block active1 %}active{% endblock %}
+{% block title %}Home{% endblock %}
+{% block title2 %}Home{% endblock %}
+{% block maincontent %}
+
+<!--Main Content Start-->
+<div class="main-content">
+  <!--Welcome Section-->
+  <section class="welcome-section">
+    <div class="container">
+      <div class="row">
+        <div class="welcome-box">
+          <div class="col-md-6 col-sm-6">
+            <div class="welcome-text">
+              <div class="sectio-title-2"> <strong>Welcome to</strong>
+                <h2>{{ mysite.title }}</h2>
+              </div>
+              <div>{{ mysite.about|safe }}</div>
+              <strong class="signature">{{ mysite.ceo }}</strong>
+              <h6 class="designation">CEO, {{ mysite.title }}</h6>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="welcome-img"> <img src="{{mysite.image1.url}}" alt=""> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Welcome Section End-->
+
+  <!--Home Services Start-->
+  <section class="home-features">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title-3"> <strong>Our Features</strong>
+            <h2>Why Choose Us?</h2>
+          </div>
+        </div>
+        {% for f in features %}
+        <div class="col-md-4 col-sm-4">
+          <div class="features-box {% if forloop.counter == 2 %}selected{% endif %}">
+            <h3>{{ f.title }}</h3>
+            <p>{{ f.description }}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--Home Services End-->
+
+  <!--Services Section Start-->
+  <section class="home-services">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title-3"> <strong>Our Services</strong>
+            <h2>Company Services</h2>
+          </div>
+        </div>
+
+        <!--service style 1-->
+        <div class="col-md-12">
+          <div class="service-style-1">
+            <div class="row">
+              <!--service box start-->
+              {% for service in services %}
+              <div class="col-md-3 col-sm-3">
+                <div class="service-box">
+                  <div class="ser-thumb"> <a href="{% url 'service_details' service.id %}" class="view"><i
+                        class="fa fa-laptop" aria-hidden="true"></i></a> <img src="{{ service.thumbnail.url }}"
+                      alt="">
+                  </div>
+                  <div class="ser-content">
+                    <h3><a href="{% url 'service_details' service.id %}">{{ service.title }}</a></h3>
+                    <p>{{ service.description|truncatewords:15 }}</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              <!--service box End-->
+            </div>
+          </div>
+        </div>
+        <!--service style 1 End-->
+
+      </div>
+    </div>
+  </section>
+  <!--Services Section End-->
+
+  <!--Heart Care Start-->
+  <section class="heart-care-services">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title-3 white"> <strong>Our Core</strong>
+            <h2>Expert Services</h2>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-5">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#service-1" aria-controls="service-1" role="tab"
+                data-toggle="tab"> <i class="fa fa-code"></i> Experienced Developers</a></li>
+            <li role="presentation"><a href="#service-2" aria-controls="service-2" role="tab" data-toggle="tab"> <i
+                  class="fa fa-lock"></i> Security Measures</a></li>
+            <li role="presentation"><a href="#service-3" aria-controls="service-3" role="tab" data-toggle="tab"> <i
+                  class="fa fa-thumbs-up"></i> Collaborations</a></li>
+            <li role="presentation"><a href="#service-4" aria-controls="service-4" role="tab" data-toggle="tab"> <i
+                  class="fa fa-paint-brush"></i> Talented Designers</a></li>
+            <li role="presentation"><a href="#service-5" aria-controls="service-5" role="tab" data-toggle="tab"> <i
+                  class="fa fa-gears"></i> High Tech Innovations</a></li>
+          </ul>
+        </div>
+        <div class="col-md-7 col-sm-7">
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="service-1">
+              <div class="ser-tab-text">
+                <h3>Experienced Developers</h3>
+                <p> <i class="fa fa-code"></i> Ut finibus sem in erat pretium, ultrices semper lorem
+                  aliquet. Nulla ultricies sagittis tellus at elementum. Cras consectetur congue diam nec imperdiet.
+                  Phasellus accumsan faucibus lectus. </p>
+                <ul>
+                  <li><i class="fa fa-check"></i> Vestibulum gravida massa ac sem potitor, ac effic.</li>
+                  <li><i class="fa fa-check"></i> Quisque non lacus tempus nisi fringilla feugiat.</li>
+                  <li><i class="fa fa-check"></i> Sed pretium diam in maximus is consectetur.</li>
+                </ul>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="service-2">
+              <div class="ser-tab-text">
+                <h3>Security Mesures</h3>
+                <p> <i class="fa fa-lock"></i> Ut finibus sem in erat pretium, ultrices semper lorem aliquet.
+                  Nulla ultricies sagittis tellus at elementum. Cras consectetur congue diam nec imperdiet.
+                  Phasellus accumsan faucibus lectus. </p>
+                <ul>
+                  <li><i class="fa fa-check"></i> Vestibulum gravida massa ac sem potitor, ac effic.</li>
+                  <li><i class="fa fa-check"></i> Quisque non lacus tempus nisi fringilla feugiat.</li>
+                  <li><i class="fa fa-check"></i> Sed pretium diam in maximus is consectetur.</li>
+                </ul>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="service-3">
+              <div class="ser-tab-text">
+                <h3>Collaborations</h3>
+                <p> <i class="fa fa-thumbs-up"></i> Ut finibus sem in erat pretium, ultrices semper lorem aliquet. Nulla
+                  ultricies sagittis tellus at elementum. Cras consectetur congue diam nec imperdiet. Phasellus
+                  accumsan faucibus lectus. </p>
+                <ul>
+                  <li><i class="fa fa-check"></i> Vestibulum gravida massa ac sem potitor, ac effic.</li>
+                  <li><i class="fa fa-check"></i> Quisque non lacus tempus nisi fringilla feugiat.</li>
+                  <li><i class="fa fa-check"></i> Sed pretium diam in maximus is consectetur.</li>
+                </ul>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="service-4">
+              <div class="ser-tab-text">
+                <h3>Talented Designers</h3>
+                <p> <i class="fa fa-paint-brush"></i> Ut finibus sem in erat pretium, ultrices semper lorem aliquet.
+                  Nulla ultricies sagittis tellus at elementum. Cras consectetur congue diam nec imperdiet.
+                  Phasellus accumsan faucibus lectus. </p>
+                <ul>
+                  <li><i class="fa fa-check"></i> Vestibulum gravida massa ac sem potitor, ac effic.</li>
+                  <li><i class="fa fa-check"></i> Quisque non lacus tempus nisi fringilla feugiat.</li>
+                  <li><i class="fa fa-check"></i> Sed pretium diam in maximus is consectetur.</li>
+                </ul>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="service-5">
+              <div class="ser-tab-text">
+                <h3>High Tech Innovation</h3>
+                <p> <i class="fa fa-gears"></i> Ut finibus sem in erat pretium, ultrices semper lorem aliquet.
+                  Nulla ultricies sagittis tellus at elementum. Cras consectetur congue diam nec imperdiet.
+                  Phasellus accumsan faucibus lectus. </p>
+                <ul>
+                  <li><i class="fa fa-check"></i> Vestibulum gravida massa ac sem potitor, ac effic.</li>
+                  <li><i class="fa fa-check"></i> Quisque non lacus tempus nisi fringilla feugiat.</li>
+                  <li><i class="fa fa-check"></i> Sed pretium diam in maximus is consectetur.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Heart Care End-->
+
+
+  <!--Team Start-->
+  <section class="team">
+    <div class="container">
+      <div class="row">
+        <div class="section-title-3"> <strong>Our Team</strong>
+          <h2>Expert Team</h2>
+        </div>
+      </div>
+      <div class="row">
+        {% for doctor in experts|slice:':4' %}
+        <div class="col-md-3 col-sm-6">
+          <div class="team-box mb50">
+            <div class="team-thumb"> <a href="{% url 'member_details' doctor.id %}" class="view"><i class="fa fa-laptop"
+                  aria-hidden="true"></i></a> <img src="{{ doctor.picture.url }}" alt=""></div>
+            <div class="team-text">
+              <h5><a href="{% url 'member_details' doctor.id %}">{{ doctor.name }}</a></h5>
+              <strong>{{ doctor.speciality }}</strong>
+              <ul class="team-social">
+                {% if doctor.twitter %}
+                <li><a class="tw" href="{{ doctor.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if doctor.facebook %}
+                <li><a class="fb" href="{{ doctor.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </li>
+                {% endif %}
+                {% if doctor.instagram %}
+                <li><a class="insta" href="{{ doctor.instagram }}"><i class="fa fa-instagram"
+                      aria-hidden="true"></i></a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--Team End-->
+
+
+  <!--Testimonials + Faqs Start-->
+  <section class="testi-faq">
+    <div class="container">
+      <div class="row">
+
+        <!--Testimonials Start-->
+        <div class="col-md-6">
+          <div class="home-testimonials">
+            <div class="sectio-title-2"> <strong>Read What Says Our</strong>
+              <h2>Happy Clients</h2>
+            </div>
+            <div id="testimonial-slider" class="owl-carousel owl-theme">
+
+              <!--Slider Start-->
+              {% for r in reviews %}
+              <div class="item">
+                <div class="testimonial-holder">
+                  <div class="user-thumb"> <img src="{% if r.image %}{{ r.image.url }}{% else %}{% endif %}" alt=""> <strong>{{ r.name }}</strong>
+                    <i>{{ r.email }}</i> </div>
+                  <div class="test-text">
+                    <p>{{ r.comment }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              <!--Slider End-->
+
+            </div>
+          </div>
+        </div>
+        <!--Testimonials End-->
+
+        <!--FAQ Start-->
+        <div class="col-md-6">
+          <div class="home-faq">
+            <div class="sectio-title-2"> <strong>Feel Free For</strong>
+              <h2>Any FAQ’s</h2>
+            </div>
+            <div class="faqs">
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% for f in faqs %}
+                <div class="panel panel-default">
+
+                  <div class="panel-heading" role="tab" id="heading{{forloop.counter}}">
+                    <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                        href="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapse{{forloop.counter}}"> {{f.question}} </a> </h4>
+                  </div>
+
+                  <div id="collapse{{forloop.counter}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{forloop.counter}}">
+                    <div class="panel-body"> {{f.answer}} </div>
+                  </div>
+
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--FAQ End-->
+
+      </div>
+    </div>
+  </section>
+  <!--Testimonials + Faqs End-->
+
+</div>
+<!--Main Content End-->
+{% endblock maincontent %}

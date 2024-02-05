@@ -1,0 +1,69 @@
+{% load static %}
+<footer class="footer">
+  <div class="footer-widgets">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="widget"> <img class="ft-logo" src="{{mysite.logo.url}}" alt="">
+            
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="widget">
+            <h3>Our Services</h3>
+            <ul>
+              {% for service in our_services %}
+              <li><a href="{% url 'service_details' service.id %}"><i class="fa fa-arrow-right"></i>
+                  {{service.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="widget">
+            <h3>Our Expert Developers</h3>
+            <ul>
+              {% for d in our_experts %}
+              <li><a href="#"><i class="fa fa-arrow-right"></i> {{ d.name }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="widget">
+            <h3>Contact us</h3>
+            <address>
+              <ul>
+                <li> <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <span
+                    class="add-text"><strong>Main Branch:</strong> {{mysite.address}}</span> </li>
+                <li> <span class="icon"><i class="fa fa-phone-square" aria-hidden="true"></i></span> <span
+                    class="add-text"><strong>Call us Anytime at:</strong> {{mysite.tel}}</span> </li>
+                <li> <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> <span
+                    class="add-text"><strong>For Inquiry:</strong> {{mysite.email}}</span> </li>
+                <li> <span class="icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span> <span
+                    class="add-text"><strong>Our Timings:</strong> Mon-Sun: 9:00am-8:00pm</span> </li>
+              </ul>
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-cr">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="footer-social"> <a href="{{mysite.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i></a> <a href="{{mysite.facebook}}"><i
+                class="fa fa-facebook" aria-hidden="true"></i></a> <a href="mailto:{{mysite.email}}"><i class="fa fa-google-plus"
+                aria-hidden="true"></i></a> <a href="{{mysite.instagram}}"><i class="fa fa-instagram" aria-hidden="true"></i></a> <a
+              href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Rigan Corporation</strong> © {% now 'Y' %}, All Rights Reserved, Design & Developed By Rigan Tech</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
